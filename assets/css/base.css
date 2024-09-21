@@ -1,0 +1,94 @@
+:root {
+    --white-color: #fff;
+    --black-color: #000;
+    --text-color: #333;
+    --font-small: 14px;
+    --font-medium: 16px;
+    --font-large: 18px;
+    --border-bottom: solid 0.667px darkgray;
+    --font-title: 'Anton', sans-serif; 
+    --btn-color: #f3ea28;
+    --hover-button-color: rgb(103, 48, 159), rgb(29, 91, 189);
+    --icon-color: yellow;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+.grid{
+    width: 70%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width{
+    width: 100%;
+}
+
+.grid__row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btn1 {
+    border: none;
+    height: 40px;
+    line-height: 30px;
+    border-radius: .4rem;
+    cursor: pointer;
+    padding: .8rem 1.2rem;
+    font-size: 1.6rem;
+    background-size: 200%; 
+    background-image: linear-gradient(to right, var(--hover-button-color) 50%, var(--btn-color) 50%);
+    background-position: left center;
+    transition: background-position 0.5s ease-in-out; 
+}
+
+.btn1:hover {
+    background-position: left center;
+    color: var(--white-color); 
+}
+
+.btn1 {
+    background-position: right center;
+} 
+
+.btn-more {
+    background: transparent;
+    border: 2px solid var(--btn-color);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.8s ease-in-out, border-color 0.8s ease-in-out;
+}
+.btn-more::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(90deg, #eb7111 50%, #f3ea28);
+    z-index: -1;
+    transition: all 0.8s ease-in-out;
+    transform: translateX(-100%);
+}
+.btn-more:hover::before {
+    transform: translateX(0);
+}
+
+.font-Anton{
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+}

@@ -1,0 +1,564 @@
+
+/* Phần đầu trang web */
+.hd {
+    height: 120px;
+    width: 100%;
+    background-color: #0f172a; 
+    position: fixed;
+    top: 0; 
+    z-index: 1000;
+}
+
+
+.hd__main {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    
+}
+.hd__left {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 30px;
+}
+.hd__logo-link {
+    display: block;
+   margin-top: 20px;
+}
+.hd__logo {
+    height: 120px;
+}
+.hd__logo-img {
+    width: 150px;
+    height: auto;
+    object-fit: contain; /* Giúp ảnh vừa khít trong không gian của nó */ 
+}
+/* chức năng rạp phim */
+.hd__local {
+   position: absolute;
+   display: none;
+   width: 250px;
+   margin-top: 14px;
+   overflow: hidden;
+   padding: 1.5rem 1rem;
+   background-color: #0f172a;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   opacity: 0; 
+   transform: translateY(-20px);
+   transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.hd__nav-item--local:hover .hd__local,
+.hd__local:hover {
+    display: grid;
+    row-gap: 1.8rem;
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 0.5s ease forwards;
+    
+}
+/* tạo lớp giả để hover */
+.hd__nav-item--local::before {
+    position: absolute;
+    width: 100%;
+    height: 20px; /* Điều chỉnh chiều cao để phù hợp */
+    left: 0;
+    top: 100%; /* Đặt ngay phía dưới "Rạp phim" */
+    content: "";
+    z-index: 0; /* Đảm bảo phần tử này nằm trên */
+
+}
+.hd__local-link {
+    color: var(--white-color);
+    text-decoration: none;
+}
+.hd__local-link:hover {
+    color: var(--hover-color);
+    
+}
+.hd__nav-item {
+    list-style: none;
+}
+.hd__nav-item--local {
+    cursor: pointer;
+    color: var(--white-color);
+    font-size: 16px;
+    position: relative;
+}
+.hd__nav-item--local:hover {
+    color: var(--hover-color);
+}
+
+/* lịch chiếu và ưu đãi */
+.hd__nav-link {
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 16px;
+}
+.hd__nav-link:hover {
+    color: var(--hover-color);
+}
+.hd__right {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+}
+.hd__search {
+    size: 42px;
+}
+.hd__search-wr {
+    position: relative;
+    display: inline-block;
+}
+.hd__search-input {
+    width: 300px;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+}
+.hd__search-icon {
+    position: absolute;
+    font-size: 18px;
+    color: #6d6f6f!important; 
+    cursor: pointer;
+    top: 50%;
+    right: 10px; 
+    transform: translateY(-50%); 
+}
+.hd__login {
+    display: flex;
+    align-items: center;
+}
+.hd__login-icon {
+    color: var(--white-color) !important;
+    font-size: 24px;
+    
+}
+.hd__login-link {
+    color: var(--white-color);
+    font-size: 16px;
+    text-decoration: none;
+    margin-left: 10px;
+}
+.hd__login-link:hover {
+    color: var(--hover-color);
+}
+.hd__login-link i {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+
+
+
+
+/* Phần thân trang web */
+.main__container{
+    background: radial-gradient(rgb(95, 71, 171) 0%, rgba(15,23,42,1) 70%, rgb(2, 2, 37) 80%, rgb(2, 2, 37) 100%);
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
+}
+
+
+.main{
+    width: 70%;
+    font: 16px  'Josefin Sans', sans-serif;
+    color: var(--white-color);
+    margin: 0 auto;
+}
+
+/* Phần banner web */
+.cinemas__banner{
+    display: flex;
+}
+
+.cinemas__banner-left{
+    width: 25%;
+}
+
+.cinemas__banner-img{
+    width: 100%;
+    height: 100%;
+}
+
+.cinemas__banner-right{
+    width: 75%;
+    background: linear-gradient(to right, rgb(87, 64, 166, 1), rgb(59, 89, 188, 1));
+    display: flex;
+}
+
+.cinemas__banner-right-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5%;
+}
+
+.fa-location-dot{
+    margin-right: 10px;
+}
+
+.cinemas__banner-name{
+    text-transform: uppercase;
+    font-size: 46px;
+    font-family: var(--font-title);
+    margin-bottom: 20px;
+    
+}
+
+.cinemas__banner-location{
+    display: flex;
+}
+
+.cinemas__banner-menu-bar{
+    background: linear-gradient(to right, rgb(55, 42, 92), rgb(12, 23, 44) 50%, rgb(23, 42, 80));
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+
+.banner__menu-list{
+    text-transform: uppercase;
+    font-size: 22px;
+    font-family: var(--font-title);
+    width: 25%;
+    text-align: center;
+
+}
+
+.banner__menu-link{
+    text-decoration: none;
+    color: var(--white-color);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.banner__menu-link:active{
+    color: yellow;
+    border-color: solid 2px yellow;
+}
+
+/* .banner__menu-list:hover{
+    border-bottom: solid 2px yellow;
+} */
+
+
+/* Khối thông tin */
+.cinemas__upcoming-container{
+
+}
+
+/* Tiêu đề */
+.cinemas__upcoming-title{
+    text-align: center;
+    font-size: 40px;
+    font-family: var(--font-title);
+    text-transform: uppercase;
+    padding: 30px 0;
+}
+
+/* Khối chứa phim đang chiếu */
+.cinemas__upcoming-movies-row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.upcoming__movies{
+    width: 49%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.upcoming__movies-img{
+    width: 53%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Khối thông tin phim */
+.upcoming__movies-infor{
+    width: 46%;
+}
+
+.upcoming__movies-name{
+    font-size: 24px;
+    font-family: var(--font-title);
+    text-transform: uppercase;
+    
+}
+
+.upcoming__movies-attribute{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+
+.upcoming__movies-label{
+    display: flex;
+
+}
+
+.fa-solid{
+    color: var(--icon-color);
+    padding-right: 5px;
+}
+
+.fa-regular{
+    color: var(--icon-color);
+    padding-right: 5px;
+    
+}
+
+.movies__list-content{
+    padding-bottom: 10px;
+    font-size: var(--font-small);
+}
+
+/* Khối thời gian chiếu */
+.upcoming__movies-showtimes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 0.667px darkgray;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.upcoming_movies-showtimes-container{
+    width: 100%;
+}
+
+.upcoming_txt{
+    font-size: var(--font-small);
+}
+
+
+.upcoming__showtimes-link{
+    padding-top: 10px;
+    font-size: var(--font-small);
+}
+
+.showtimes-link{
+    color: yellow;
+    overflow: hidden; /* Ẩn phần hiệu ứng vượt ra ngoài */
+    transition: color 1s;
+}
+
+@keyframes linkEffect {
+    0% {
+        color: yellow; /* Màu nền ban đầu */
+    }
+    50% {
+        color: rgb(139, 138, 147); /* Màu nền khi gợn sóng */
+    }
+    100% {
+        color: yellow; /* Quay về màu nền ban đầu */
+    }
+}
+
+/* Khi hover vào nút */
+.showtimes-link:hover {
+    animation: linkEffect 1s infinite; /* Gọi hiệu ứng, lặp lại vô hạn */
+}
+
+.upcoming__movies-ticket-class{
+    font-size: var(--font-small);
+    text-transform: uppercase;
+}
+
+.upcoming__movies-time-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.movies__time-box{
+    width: 22%;
+    border: solid 0.667px darkgray;
+    border-radius: 4px;
+    text-align: center;
+    padding: 5px;
+    margin:0 4px 5px; 
+
+}
+
+.movies__box-link{
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+
+
+
+
+
+
+
+/* Khối footer */
+.footer{
+    background: linear-gradient(to right, rgb(103, 48, 159), rgb(29, 91, 189) );
+    display: flex;
+    justify-content: center;
+    
+}
+
+.footer-container{
+    padding-top: 100px;
+    width: 70%;
+}
+
+
+/* Khối footer trên */
+.footer-top{
+    display: flex;
+    border-bottom: solid 0.667px white;
+    justify-content: space-between;
+}
+
+/* Khối footer nhỏ bên trái */
+.footer-top-left{
+    width: 35%;
+    font-size: var(--font-small);
+    color: var(--white-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-left-logo{
+    font-size: 30px;
+    margin-bottom: 10px;
+    line-height: 40px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+}
+
+
+.footer__logo-img{
+    width: 40%;
+
+}
+
+.footer-left-slogan{
+    text-transform: uppercase;
+    font-size: var(--font-large);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.btn-order{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.btn-order button{
+    width: 45%;
+    padding: 10px 20px;
+    font-size: var(--font-medium);
+    line-height: 20px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px; 
+    margin: 10px 0 20px;
+    font-weight: bold;
+}
+
+.fa-brands{
+    color: var(--white-color);
+    font-size: 20px;
+    margin: 10px 10px 0 0;
+}
+
+/* Khối footer nhỏ bên phải */
+.footer-top-right{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-column{
+    margin-right: 30px;
+    height: auto;
+}
+
+
+.footer-column-link{
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+.footer-menu-list{
+    list-style: none;
+    font-size: var(--font-medium);
+    color: var(--white-color);
+    margin: 0 0 100px;
+}
+
+.footer-column-title{
+    text-transform: uppercase;
+    font-size: var(--font-large);
+    line-height: 30px;
+    font-family: var(--font-title);
+    font-weight: 400;
+    margin: 0 0 30px ;
+}
+
+.footer-column-menu{
+    margin: 30px 0;
+    font-weight: 400;
+    font-size: var(--font-medium);
+
+}
+
+/* Phần footer giữa */
+.footer-bottom{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: var(--white-color);
+}
+
+.footer-bottom-left{
+    display: flex;
+    width: 30%;
+    font-size: var(--font-medium);
+}
+
+.copyright{
+    margin-left: 5px;
+}
+
+.fa-copyright{
+    margin-top: 15px;
+    color: white;
+}
+
+.footer-bottom-right{
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+}
+
+.footer-bottom-right-items{
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: var(--font-medium);
+    margin-top: 20px;
+}
